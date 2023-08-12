@@ -1,0 +1,15 @@
+#Two Sum
+
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        
+        Set<Integer> items= new HashSet<Integer>();
+
+        for(Integer x:nums)
+        {
+            items.add(x);
+        }
+
+        return (items.size()!=nums.length);
+  }
+}
