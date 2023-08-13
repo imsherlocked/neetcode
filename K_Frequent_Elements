@@ -7,13 +7,7 @@ class Solution {
         int result[]=new int[k];
         for(int x:nums)
         {
-            if(!map.containsKey(x))
-            {
-                map.put(x,1);
-            }
-            else
-
-            map.put(x,map.get(x)+1);
+            map.put(x,map.getOrDefault(x,0)+1);
         }
 
 
