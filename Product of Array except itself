@@ -1,0 +1,50 @@
+#
+
+//Approach 1:
+
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        
+        int len = nums.length;
+    int [] output = new int[len];
+    
+    int leftMult = 1, rightMult = 1;
+    
+    for(int i = len-1; i >= 0; i--){
+        output[i] = rightMult;
+        rightMult *= nums[i];
+    }
+    for(int j = 0; j < len; j++){
+        output[j] *= leftMult;
+        leftMult *= nums[j];
+       
+    }
+    
+    return output; 
+        
+    }
+}
+
+
+//Approach 2: Same as prefix sum
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        
+        int n = nums.length;
+    int[] res = new int[n];
+    res[0] = 1;
+    for (int i = 1; i < n; i++) {
+        res[i] = res[i - 1] * nums[i - 1];
+        //System.out.println("--- "+res[i]);
+    }
+    int right = 1;
+    for (int i = n - 1; i >= 0; i--) {
+        res[i] *= right;
+        //System.out.println("+ "+res[i]);
+        right *= nums[i];
+        //System.out.println(right);
+    }
+    return res;
+        
+    }
+}
