@@ -9,9 +9,6 @@ class Solution {
         {
             map.put(x,map.getOrDefault(x,0)+1);
         }
-
-
-       
        List<Integer> list=new ArrayList<>(map.keySet());
        
        Collections.sort(list,(a,b)->
@@ -24,3 +21,17 @@ class Solution {
         return result;
     }
 }
+
+/*
+Explaination:
+(a,b) -> map.get(b) - map.get(a) is a lambda expression, Also known as a comparator.
+
+It's defining the 'priority' of the queue to be whichever number ( a or b ) is bigger.
+
+It works like this...
+
+If (a,b) -> map.get(b) - map.get(a) - It will start adding elements with their freq in decreasing order (in this case, it will be 3 2 1 (freq))
+if (a,b) -> map.get(a) - map.get(b) - It will start adding element with their freq in increasing order (in this case, it will be 1 2 3 (freq))
+
+// Since you are always doing map.get, it means you're comparing it on values only, so doesn't confuse it with whatever is written in the key
+*/
