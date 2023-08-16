@@ -8,6 +8,7 @@ class Solution {
 
         for(int i=0;i<9;i++)
         {
+            //reinitialize the sets so we don't carry over found characters from the previous run
             row=new HashSet<>();
             col=new HashSet<>();
 
@@ -38,6 +39,8 @@ class Solution {
             }
         }
 
+        //block
+        //loop controls advance by 3 each time to jump through the boxes
         for(int i=0;i<9;i+=3)
         {
             for(int j=0;j<9;j+=3)
@@ -55,9 +58,10 @@ class Solution {
             Set<Character> blockSet = new HashSet<>();
             int row=idX+3;
             int col=idY+3;
-
+            //and because i initializes to idX but only goes to rows, we loop 3 times (once for each row)
             for(int i=idX;i<row;i++)
             {
+                //and because j initializes to idY but only goes to col, we loop 3 times (once for each row)
                 for(int j=idY;j<col;j++)
                 {
                     if(board[i][j]!='.')
