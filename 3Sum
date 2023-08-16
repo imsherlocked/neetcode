@@ -1,4 +1,8 @@
 #
+//Runtime: 47 ms, faster than 35.83% of Java online submissions for 3Sum.
+    //Memory Usage: 60.1 MB, less than 32.20% of Java online submissions for 3Sum.
+    //Two pointers
+    //Time: O(N * LogN + N * N); Space : O(N + LogN)
 
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
