@@ -1,0 +1,78 @@
+#
+
+class Solution {
+    public boolean isValidSudoku(char[][] board) {
+        
+        Set<Character> row=null;
+        Set<Character> col=null;
+
+        for(int i=0;i<9;i++)
+        {
+            row=new HashSet<>();
+            col=new HashSet<>();
+
+            for(int j=0;j<9;j++)
+            {
+                    char r=board[i][j];
+                    char c=board[j][i];
+
+                    if(r!='.')
+                    {
+                        if(row.contains(r))
+                    {
+                        return false;
+                    }
+                    else
+                        row.add(r);
+                    }
+
+                    if(c!='.')
+                    {
+                        if(col.contains(c))
+                    {
+                        return false;
+                    }
+                    else
+                        col.add(c);
+                    }
+            }
+        }
+
+        for(int i=0;i<9;i+=3)
+        {
+            for(int j=0;j<9;j+=3)
+            {
+                if(!blockCheck(i,j,board))
+                    return false;
+            }
+        }
+
+        return true;
+    }
+
+        public boolean blockCheck(int idX,int idY,char [][] board)
+        {
+            Set<Character> blockSet = new HashSet<>();
+            int row=idX+3;
+            int col=idY+3;
+
+            for(int i=idX;i<row;i++)
+            {
+                for(int j=idY;j<col;j++)
+                {
+                    if(board[i][j]!='.')
+                    {
+                        if(blockSet.contains(board[i][j]))
+                        {
+                            return false;
+                        }
+                        else
+                        {
+                            blockSet.add(board[i][j]);
+                        }
+                    }
+                }
+            }
+            return true;
+        }  
+}
