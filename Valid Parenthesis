@@ -13,7 +13,9 @@ class Solution {
 			stack.push('}');
 		else if (s.charAt(i)  == '[')
 			stack.push(']');
-		else if (stack.isEmpty() || stack.pop() != s.charAt(i) )
+		else if (stack.isEmpty() || stack.pop() != s.charAt(i) ) // if the character is a closing bracket
+                // if the stack is empty (i.e., there is no matching opening bracket) or the top of the stack
+                // does not match the closing bracket, the string is not valid, so return false
 			return false;
     }
     return stack.isEmpty();
