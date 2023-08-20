@@ -1,4 +1,4 @@
-#
+#using sliding window
 class Solution {
     public int characterReplacement(String s, int k) {
         int[] arr = new int[26];
