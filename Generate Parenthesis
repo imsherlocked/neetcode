@@ -1,1 +1,27 @@
 #
+class Solution {
+    // int n=0;
+    public List<String> generateParenthesis(int x) {
+        // n=x;
+        List<String> ans=new ArrayList<>();
+        backTrack("",x,x,ans);
+        return ans;
+        
+    }
+
+    public void backTrack(String s,int open,int close,List<String> ans)
+    {
+        if(open>close)
+        return;
+
+        if(open>0)
+        {
+            backTrack(s+"(",open-1,close,ans);
+        }
+        if(close>0)
+        backTrack(s+")",open,close-1,ans);
+
+        if(open==0 && close==0)
+            ans.add(s);
+    }
+}
